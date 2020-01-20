@@ -502,25 +502,4 @@ public class AccountUserServiceImpl implements AccountUserService {
         return http;
     }
 
-    @Override
-    public String buyRecords(String Txid, String authentication) {
-        bodyStringMap = new HashMap<>(16);
-        bodyStringMap.put("Txid",Txid);
-        try
-        {
-            http = Http.http("http://47.103.159.142:8095/api/markConfirmed", bodyStringMap,authentication);
-        }
-        catch (Exception e)
-        {
-            logger.error("AccountUserServiceImpl getTXID e = " +
-                    e.getMessage() + "http = " + http);
-        }
-        if (Strings.isEmpty(http))
-        {
-            return "No unauthenticated users";
-        }
-        return http;
-    }
-
-
 }

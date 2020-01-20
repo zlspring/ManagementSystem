@@ -33,5 +33,5 @@ public interface AccountUserService {
     String queryTXID(String uid,String authentication);
     String queryCoinCurrencyPrepaidPhone(String Txid,String authentication);
     String queryCoinMoneyWithdrawal(String Txid,String authentication);
-    String buyRecords(String Txid,String authentication);
+
 }

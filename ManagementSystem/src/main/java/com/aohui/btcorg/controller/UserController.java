@@ -5,6 +5,7 @@ import com.aohui.btcorg.entity.AccountUserEntity;
 import com.aohui.btcorg.model.ResultMap;
 import com.aohui.btcorg.repo.AccountUserRepo;
 import com.aohui.btcorg.service.AccountUserService;
+import com.aohui.btcorg.service.PropertyService;
 import com.aohui.btcorg.util.MD5HEXUtil;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -32,6 +33,9 @@ public class UserController {
 
     @Resource
     private AccountUserService accountUserService;
+
+    @Resource
+    private PropertyService propertyService;
 
     @Resource
     private  ResultMap resultMap;
@@ -389,7 +393,9 @@ public class UserController {
         String token = request.getHeader("Token");
         String authentication = request.getHeader("Authentication");
         accountUserService.operationRecord(token,"Account security status",Txid);
-        return accountUserService.buyRecords(Txid,authentication);
+        return propertyService.buyRecords(Txid,authentication);
     }
+
+
 
 }
