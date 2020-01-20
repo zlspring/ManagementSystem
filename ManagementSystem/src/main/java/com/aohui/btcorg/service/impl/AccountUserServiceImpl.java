@@ -422,7 +422,7 @@ public class AccountUserServiceImpl implements AccountUserService {
     }
 
     @Override
-    public String AddressOfACurrency(String uid, String authentication) {
+    public String addressOfACurrency(String uid, String authentication) {
         bodyStringMap = new HashMap<>(16);
         bodyStringMap.put("uid",uid);
         try
@@ -442,7 +442,7 @@ public class AccountUserServiceImpl implements AccountUserService {
     }
 
     @Override
-    public String getTXID(String uid,String authentication) {
+    public String queryTXID(String uid,String authentication) {
 
         bodyStringMap = new HashMap<>(16);
         bodyStringMap.put("uid",uid);
@@ -461,4 +461,66 @@ public class AccountUserServiceImpl implements AccountUserService {
         }
         return http;
     }
+
+    @Override
+    public String queryCoinCurrencyPrepaidPhone(String Txid, String authentication) {
+        bodyStringMap = new HashMap<>(16);
+        bodyStringMap.put("Txid",Txid);
+        try
+        {
+            http = Http.http("http://47.103.159.142:8095/api/markConfirmed", bodyStringMap,authentication);
+        }
+        catch (Exception e)
+        {
+            logger.error("AccountUserServiceImpl getTXID e = " +
+                    e.getMessage() + "http = " + http);
+        }
+        if (Strings.isEmpty(http))
+        {
+            return "No unauthenticated users";
+        }
+        return http;
+    }
+
+    @Override
+    public String queryCoinMoneyWithdrawal(String Txid, String authentication) {
+        bodyStringMap = new HashMap<>(16);
+        bodyStringMap.put("Txid",Txid);
+        try
+        {
+            http = Http.http("http://47.103.159.142:8095/api/markConfirmed", bodyStringMap,authentication);
+        }
+        catch (Exception e)
+        {
+            logger.error("AccountUserServiceImpl getTXID e = " +
+                    e.getMessage() + "http = " + http);
+        }
+        if (Strings.isEmpty(http))
+        {
+            return "No unauthenticated users";
+        }
+        return http;
+    }
+
+    @Override
+    public String buyRecords(String Txid, String authentication) {
+        bodyStringMap = new HashMap<>(16);
+        bodyStringMap.put("Txid",Txid);
+        try
+        {
+            http = Http.http("http://47.103.159.142:8095/api/markConfirmed", bodyStringMap,authentication);
+        }
+        catch (Exception e)
+        {
+            logger.error("AccountUserServiceImpl getTXID e = " +
+                    e.getMessage() + "http = " + http);
+        }
+        if (Strings.isEmpty(http))
+        {
+            return "No unauthenticated users";
+        }
+        return http;
+    }
+
+
 }

@@ -29,7 +29,9 @@ public interface AccountUserService {
     String bindBankCard(String uid,String authentication);
     String withdrawalAmount(String uid,String authentication);
     String addressTheCurrency(String uid,String authentication);
-    String AddressOfACurrency(String uid,String authentication);
-    String getTXID(String uid,String authentication);
-
+    String addressOfACurrency(String uid,String authentication);
+    String queryTXID(String uid,String authentication);
+    String queryCoinCurrencyPrepaidPhone(String Txid,String authentication);
+    String queryCoinMoneyWithdrawal(String Txid,String authentication);
+    String buyRecords(String Txid,String authentication);
 }

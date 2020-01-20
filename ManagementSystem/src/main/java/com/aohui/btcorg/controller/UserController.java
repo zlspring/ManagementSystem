@@ -232,5 +232,164 @@ public class UserController {
         return accountUserService.queryUsrSecurityInfo(uid,authentication);
     }
 
+    /**
+     * 账户币币资产
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/queryCurrency")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String queryCurrency(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.queryCurrency(uid,authentication);
+    }
+
+    /**
+     * 账户法币资产
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/fiatAssets")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String fiatAssets(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.fiatAssets(uid,authentication);
+    }
+
+    /**
+     * 绑定银行卡
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/bindBankCard")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String bindBankCard(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.bindBankCard(uid,authentication);
+    }
+
+    /**
+     * 提现额度管理
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/withdrawalAmount")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String withdrawalAmount(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.withdrawalAmount(uid,authentication);
+    }
+
+    /**
+     * 入币地址查询
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/addressTheCurrency")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String addressTheCurrency(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.addressTheCurrency(uid,authentication);
+    }
+
+    /**
+     * 出币地址查询
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/addressOfACurrency")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String addressOfACurrency(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.addressOfACurrency(uid,authentication);
+    }
+
+    /**
+     * 通过UID查询txid
+     * @param request
+     * @param uid
+     * @return
+     */
+    @PostMapping("/queryTXID")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String queryTXID(HttpServletRequest request, @RequestParam("uid")String uid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",uid);
+        return accountUserService.queryTXID(uid,authentication);
+    }
+
+    /**
+     * 币币充值记录
+     * @param request
+     * @param Txid
+     * @return
+     */
+    @PostMapping("/queryCoinCurrencyPrepaidPhone")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String queryCoinCurrencyPrepaidPhone(HttpServletRequest request, @RequestParam("Txid")String Txid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",Txid);
+        return accountUserService.queryCoinCurrencyPrepaidPhone(Txid,authentication);
+    }
+
+    /**
+     * 币币提现记录
+     * @param request
+     * @param Txid
+     * @return
+     */
+    @PostMapping("/queryCoinMoneyWithdrawal")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String queryCoinMoneyWithdrawal(HttpServletRequest request, @RequestParam("Txid")String Txid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",Txid);
+        return accountUserService.queryCoinMoneyWithdrawal(Txid,authentication);
+    }
+
+    /**
+     * 币币买入记录
+     * @param request
+     * @param Txid
+     * @return
+     */
+    @PostMapping("/buyRecords")
+    @RequiresRoles(logical = Logical.OR, value = {"user", "admin"})
+    public String buyRecords(HttpServletRequest request, @RequestParam("Txid")String Txid)
+    {
+        String token = request.getHeader("Token");
+        String authentication = request.getHeader("Authentication");
+        accountUserService.operationRecord(token,"Account security status",Txid);
+        return accountUserService.buyRecords(Txid,authentication);
+    }
 
 }
