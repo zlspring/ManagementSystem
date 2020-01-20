@@ -457,7 +457,7 @@ public class AccountUserServiceImpl implements AccountUserService {
         }
         if (Strings.isEmpty(http))
         {
-            return "No unauthenticated userss";
+            return "No unauthenticated users";
         }
         return http;
     }

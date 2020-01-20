@@ -31,4 +31,5 @@ public interface AccountUserService {
     String addressTheCurrency(String uid,String authentication);
     String AddressOfACurrency(String uid,String authentication);
     String getTXID(String uid,String authentication);
+
 }
